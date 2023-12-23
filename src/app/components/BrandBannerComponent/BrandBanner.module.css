@@ -1,0 +1,30 @@
+
+
+
+
+
+
+.gradient {
+    background: linear-gradient(to bottom right, #f2d7da 0%, #dadbdc 25%, #bfe0e4 50%, #f3d7bd 75%, #f7bab9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ff0000', GradientType=0);
+    background-position: 0 0;
+    height: 30vh;
+    opacity: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.314);
+  }
+  
+
+
+  .name {
+    font-weight: lighter;
+    font-size: clamp(2.2rem, 12vw, 10rem);
+  }
+
+  .slogan {
+    font-size: clamp(1rem, 4vw, 1.7rem);
+  }

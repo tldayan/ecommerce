@@ -1,0 +1,89 @@
+
+
+
+.Navbar {
+/*     border-bottom: 1px solid rgba(0, 0, 0, 0.245); */
+    box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.314);
+    position: relative;
+/*     background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 15px 20px 15px 10px;
+}
+
+.logo {
+    padding: 5px 5px;
+   /*  border: 2px solid rgb(0, 0, 0); */
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    margin-right: auto;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.4rem, 4vw, 1.5rem);
+}
+
+.navbarLinks > ul {
+  /*   border: 1px solid black; */
+    position: absolute;
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    top: 50%;
+    left: 0%;
+    transform: translate(25%,-50%);
+}
+
+.navbarLinks > ul > li > a,.navbarLinks > ul > li > a:active {
+    text-decoration: none;
+    background-color: rgba(216, 216, 216, 0.222);
+    padding: 4px 10px;
+    border-radius: 5px;
+    color: black;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.navbarLinks > ul > li > a:hover {
+    color: rgb(100, 100, 100);
+}
+
+.navbarButtons {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: clamp(0.3rem, 3vw, 0.9rem);
+/*     border: 1px solid black; */
+/*     margin-right: 10px; */
+}
+
+
+
+.navbarButtons > img  {
+    display: block;
+
+}
+
+.navbarButtons > img:hover  {
+    cursor: pointer;
+}
+
+.navbarButtons > a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbarButtons > a:hover {
+    text-decoration: underline;
+}
+
+/* .wishlist_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+} */
