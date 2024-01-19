@@ -9,7 +9,6 @@ let client;
 
 async function connectToMongo() {
   if (!client) {
-    console.log("Making connection")
     client = new MongoClient(URI, options);
     await client.connect();
   }
