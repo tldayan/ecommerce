@@ -13,7 +13,7 @@ type Props= {
 
 export default async function WishlistItem({productId} : Props) {
 
-    const fetchProductData = await fetch(`https://ecomexpress/api/product?id=${productId}`)
+    const fetchProductData = await fetch(`https://ecomxpress/api/product?id=${productId}`)
 
     const productData = await fetchProductData.json()
 

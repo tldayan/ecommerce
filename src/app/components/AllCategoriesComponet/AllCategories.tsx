@@ -14,7 +14,7 @@ export default function AllCategories() {
 
   useEffect(() => {
     const fetchAllProducts = async () => {
-      const data = await fetch(`https://ecomexpress/api/products`);
+      const data = await fetch(`https://ecomxpress/api/products`);
       /* https://localhost:3000 */
 
       const products = await data.json();
