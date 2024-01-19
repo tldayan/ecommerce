@@ -3,9 +3,9 @@
 
 .SearchBar {
     flex: 1;
-  /*   border: 1px solid black; */
+/*     border: 1px solid black; */
  position: relative;
- 
+ z-index: 999;
 }
 
 .SearchBar > input {
@@ -16,7 +16,7 @@
     text-indent: 10px;
     border-radius: 5px;
     outline: none;
-    font-size: 1.1rem;
+    font-size: clamp(0.6rem, 3vw, 1rem);
     background-color: rgb(228, 228, 228)
 }
 
@@ -28,21 +28,86 @@
     opacity: 0.3;
 }
 
+.mainSearchResultsContainer {
+    border-radius: 5px;
+    width: 100%;
+   /*  border: 1px solid black; */
+    position: absolute;
+    top: 110%;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.314);
+    left: 50%;
+    transition: all 0.3s ease;
+    background-color: rgb(239, 239, 239);
+    max-height: 70vh;
+    transform: translateX(-50%);
+    overflow-y: scroll;
+}
+
+
+.searchResultsContainer {
+    list-style-type: none;
+    
+}
+
+.searchResultsContainer > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid rgba(87, 87, 87, 0.128);
+}
+
+
+
+.searchResultsContainer > li:first-child > a:first-child {
+    border-radius: 8px 8px 0px 0px ;
+}
+.searchResultsContainer > li:last-child > a:last-child {
+    border-radius: 0px 0px 8px 8px ;
+}
+
+.result,.result:visited {
+/*     border: 1px solid black; */
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    align-self: stretch;
+    transition: all 0.3s ease;
+}
+
+
+.result:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+
+
+
 
 
 @media (max-width:500px) {
 
     .SearchBar {
         position: absolute;
-        top: 125%;
+        top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        width: 97%;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.268);
+        width: 100%;
+        border-radius: 5px;
+/*         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.133); */
     }
 
+
+    .mainSearchResultsContainer {
+
+        width: 97%;
+
+    }
+    
     .SearchBar > input {
- /*        background-color: red; */
         width: 100%;
         margin: 0 auto;
     }

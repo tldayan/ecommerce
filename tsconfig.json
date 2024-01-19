@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "libs/fetchProducts.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "libs/fetchProducts.js", "src/app/api/loadingSkeletons/loading.tsx", "src/redux/store/CartSlice.ts"],
   "exclude": ["node_modules"]
 }

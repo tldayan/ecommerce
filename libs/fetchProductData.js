@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+
 import clientPromise from "./mongodb";
 
 export default async function fetchProductData(id) {

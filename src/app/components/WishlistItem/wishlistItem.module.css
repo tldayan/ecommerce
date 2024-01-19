@@ -1,0 +1,57 @@
+
+
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    background-color: rgb(239, 239, 239);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+
+}
+
+.product:hover {
+    background-color: rgb(225, 225, 225);
+}
+
+.productDetailsContainer {
+/*     border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2px;
+
+}
+
+
+.productDetailsContainer > h3{
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+}
+
+.productDetailsContainer > p {
+
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
+}
+
+.stockBadge {
+    background-color: rgba(17, 232, 103, 0.702);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    color: white;
+    width: max-content;
+    font-size: clamp(0.5rem, 3vw, 0.8rem);
+    padding: 2px 4px;
+}
+.stockBadge.out {
+    background-color: rgba(255, 24, 24, 0.748);
+}

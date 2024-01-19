@@ -26,6 +26,19 @@ button {
 
 
 
+.mainContainer {
+  position: fixed;
+  background-color: #efebeb;
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 .load_animation_black {
   margin:  20px auto;
 	width: 30px;

@@ -8,6 +8,11 @@ module.exports = {
         protocol: 'https',
         hostname: 'me.louisvuitton.com',
         pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'k.nooncdn.com',
+        pathname: '**',
       }
     ]
   }

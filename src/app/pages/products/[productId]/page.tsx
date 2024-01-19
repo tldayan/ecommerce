@@ -1,8 +1,9 @@
 import React from "react";
 import fetchProducts from "../../../../../libs/fetchProducts";
 import fetchProductData from "../../../../../libs/fetchProductData";
-import notFound from "../../NotFound/notFound";
+import notFound from "../../NotFound/page";
 import ProductView from "@/app/components/ProductViewComponent/ProductView";
+import CategoryProducts from "@/app/components/CategoryProductsComponent/CategoryProducts";
 
 export async function generateStaticParams() {
 
@@ -26,7 +27,7 @@ export async function generateMetadata({params} : {params  : {productId : string
 
 
 
-export default async function productView({params,}: {params: { productId: string }}) {
+export default async function productView({params}: {params: { productId: string }}) {
 
   const { productId } = params;
 
@@ -36,9 +37,13 @@ export default async function productView({params,}: {params: { productId: strin
     return notFound();
   }
 
+  product._id = product._id.toString()
+
   return (
     <div>
       <ProductView product={product} />
+
+      <CategoryProducts category={product.category} />
     </div>
   );
 }
