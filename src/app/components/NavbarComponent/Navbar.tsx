@@ -51,8 +51,8 @@ export default function Navbar() {
             </div>
             
           </Link>
-          <Link href={"/login"} className='login_btn'>Log In</Link>
-          <Link href={"/signup"} className='signup_btn'>Sign Up</Link>
+          <Link href={"/"} className='login_btn'>Log In</Link>
+          <Link href={"/"} className='signup_btn'>Sign Up</Link>
           <Link href={"/pages/cart"}>
             <div className={styles.cartImageContainer}>
             {cart?.length > 0 && (<div className={`${styles.cartQty} ${cart?.length > 0 && styles.active}`}>{cart.length}</div>)}
