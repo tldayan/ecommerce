@@ -24,7 +24,7 @@ export default function SearchBar() {
 
     const fetchAllProducts = async() => {
 
-      const res = await fetch("https://ecomxpress/api/products")
+      const res = await fetch("https://ecomxpress.vercel.app/api/products")
 
       const allproducts = await res.json()
 
