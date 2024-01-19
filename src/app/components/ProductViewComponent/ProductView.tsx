@@ -42,7 +42,7 @@ export default function ProductView({ product }: Props) {
 
     setProductImages(preloadImages)
 
-  },[])
+  },[product])
 
 
   useEffect(() => {
