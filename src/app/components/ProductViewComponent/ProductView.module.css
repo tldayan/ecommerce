@@ -175,18 +175,23 @@ padding: 0 20px;
     align-items: center;
     justify-content: center;
     color: rgba(0, 0, 0, 0.647);
+    font-size: clamp(0.5rem, 3vw, 1rem);
     background-color: rgba(223, 223, 223, 0.459);
     
 }
 
 .tabby,.tamara {
-padding: 15px;
+padding: 12px;
 width: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
 border-radius: 5px ;
 position: relative;
+}
+
+.tabby > p,.tamara > p {
+    font-size: clamp(0.5rem, 3vw, 1rem);
 }
 
 .tamara_logo {

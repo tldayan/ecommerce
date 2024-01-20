@@ -9,15 +9,14 @@
 }
 
 .SearchBar > input {
-    /* border: 1px solid rgba(0, 0, 0, 0.143); */
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.046);
     height: 40px;
     width: 100%;
     text-indent: 10px;
     border-radius: 5px;
     outline: none;
     font-size: clamp(0.6rem, 3vw, 1rem);
-    background-color: rgb(228, 228, 228)
+    background-color: #efebeb;
 }
 
 

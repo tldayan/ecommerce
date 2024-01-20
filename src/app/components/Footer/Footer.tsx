@@ -29,7 +29,7 @@ export default function Footer() {
                 <Link href={"/"} className={styles.footer_links}>Twitter</Link>
                 <Link href={"/"} className={styles.footer_links}>Telegram</Link>
                 <Link href={"/"} className={styles.footer_links}>Instagram</Link>
-                <Link href={"/"} className={styles.footer_links}>Interactive Chat</Link>
+                <Link href={"/"} className={styles.footer_links}>Linkedin</Link>
               </ul>
             </div>
           </div>
