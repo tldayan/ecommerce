@@ -4,11 +4,11 @@
     border: 3px solid rgb(0, 0, 0);
     /* width: 90%; */
     width: min(98%, 1800px);
-    margin: 100px auto;
+    margin: 0px auto;
     height: auto;
     display: flex;
     justify-content: space-between;
-    /* background-color: rgba(255, 255, 255, 0.485); */
+    background-color: rgba(255, 255, 255, 0.485);
     border-radius: 10px;
     padding: 70px 10px 10px 10px;
 
