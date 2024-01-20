@@ -234,7 +234,7 @@ export default function ProductView({ product }: Props) {
         </div>
 
         <p className={styles.payment_plan}>
-          Monthly payment plans from AED 33.
+          Monthly payment plans from AED 33.&nbsp;
           <Link className={styles.more_details} href={"/"}>View more details</Link>
         </p>
 
