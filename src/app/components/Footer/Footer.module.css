@@ -18,8 +18,8 @@
   }
   
   .footer_container {
-      /* border: 1px solid black; */
-    width: 95%;
+      border: 1px solid black;
+    width: 90%;
     margin: 30px 30px;
     display: flex;
     align-items: center;
@@ -29,7 +29,9 @@
   }
   .footer_container h3 {
     font-family: "Quicksand", sans-serif;
-    font-size: 1rem;
+    font-size: clamp(0.3rem, 3vw, 0.9rem);
+    letter-spacing: 1px;
+    opacity: 0.5;
   }
   .footer_container ul {
     /*     border: 1px solid black; */
@@ -44,6 +46,7 @@
     text-align: center;
     opacity: 0.5;
     font-size: clamp(0.3rem, 3vw, 1rem);
+    padding-bottom: 10px;
   }
   
   .footer_links {
@@ -51,7 +54,7 @@
     color: black;
     opacity: 0.5;
     transition: all ease 0.2s;
-    font-size: clamp(0.3rem, 3vw, 1rem);
+    font-size: clamp(0.3rem, 3vw, 0.8rem);
     font-family: Inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif;
   }
   
@@ -63,7 +66,7 @@
 .logo {
     padding: 5px 5px;
    /*  border: 2px solid rgb(0, 0, 0); */
-   opacity: 0.5;
+  /*  opacity: 0.5; */
     text-decoration: none;
     color: rgb(0, 0, 0);
     margin-right: auto;
