@@ -64,9 +64,9 @@ export default function CategoryProducts({category} : Props) {
                 <Image
                   className={styles.productImage}
                   src={eachProduct.images[0]}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
+                  width={200}
+                  height={200}
+              /*     sizes="100vw" */
                   alt={eachProduct.title}
                   priority={true}
                 />
