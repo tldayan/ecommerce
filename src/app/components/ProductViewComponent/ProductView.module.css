@@ -1,7 +1,7 @@
 
 
 .productViewContainer {
-    border: 3px solid rgb(0, 0, 0);
+    /* border: 3px solid rgb(0, 0, 0); */
     /* width: 90%; */
     width: min(98%, 1800px);
     margin: 0px auto;
