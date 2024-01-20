@@ -13,7 +13,7 @@ export const cormant_infant = Cute_Font({
 })
 export const jose = Josefin_Slab({
     subsets : ['latin'],
-    weight : ["100"]
+    weight : ["500"]
 })
 
 export const poiret = Poiret_One({

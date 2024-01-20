@@ -312,6 +312,8 @@ background-color: #0d54fada;
 
 .itemQuantity {
     opacity: 0.6;
+    font-size: clamp(0.2rem, 3vw, 0.8rem);
+  
 }
 
 .wishlist_btn {
@@ -363,7 +365,9 @@ background-color: #0d54fada;
     flex-direction: column;
     gap: 0px;
 }
-
+.itemQuantity {
+    padding: 4px;
+}
 
 
 .summaryContainer {
