@@ -4,8 +4,10 @@
 .Navbar {
 /*     border-bottom: 1px solid rgba(0, 0, 0, 0.245); */
     box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.314);
-    position: relative;
-/*     background-color: red; */
+    /* position: relative; */
+    position: sticky;
+    top: 0;
+    background-color: #efebeb;
     display: flex;
     align-items: center;
     z-index: 999999;
