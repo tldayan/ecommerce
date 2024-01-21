@@ -17,7 +17,7 @@
 }
 
 .itemsContainer {
-    border: 5px solid rgb(255, 0, 0);
+    /* border: 5px solid rgb(255, 0, 0); */
    margin-top: 10px;
     display: flex;
     flex-direction: column;

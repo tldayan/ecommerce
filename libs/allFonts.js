@@ -1,5 +1,5 @@
 
-import { Cute_Font, Josefin_Slab, Philosopher, Poiret_One, Lato} from 'next/font/google'
+import { Cute_Font, Josefin_Slab, Philosopher, Poiret_One, Lato, Quicksand} from 'next/font/google'
 
 export const philosopher = Philosopher({
     subsets : ["latin"],
@@ -21,6 +21,10 @@ export const poiret = Poiret_One({
     weight : ["400"]
 })
 export const lato = Lato({
+    subsets : ['latin'],
+    weight : ["400"]
+})
+export const quicksand = Quicksand({
     subsets : ['latin'],
     weight : ["400"]
 })

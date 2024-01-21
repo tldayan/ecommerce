@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./EmptyCart.module.css"
-import { lato } from '../../../../libs/allFonts'
+import { lato, quicksand } from '../../../../libs/allFonts'
+import Link from 'next/link'
 
 export default function EmptyCart() {
   return (
@@ -57,8 +58,9 @@ export default function EmptyCart() {
       <path d="M736,577 C737.65825,577 739,578.34175 739,580 C739,578.34175 740.34175,577 742,577 C740.34175,577 739,575.65825 739,574 C739,575.65825 737.65825,577 736,577 Z" id="bubble-rounded" stroke="#3CBC83" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
   </svg>
 
-  <h3 className={lato.className}>Your Cart Is Empty!</h3>
-  <p>Ready to fill your cart? Start shopping to add items!</p>
+  <h3 className={quicksand.className}>Your Cart Is Empty!</h3>
+  <p className={quicksand.className}>Ready to fill your cart? Start shopping to add items!</p>
+  <Link href={"/"} className={`${quicksand.className} ${styles.homeButton}`}>Start Shopping!</Link>
 </div>
   )
 }
