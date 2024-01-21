@@ -23,13 +23,16 @@ const wishlistData = localStorage.getItem("wishlist")
 
 
   return (
-    <div className={styles.wishlistContainer}>
+    <>
+    {wishlist.length ? <div className={styles.wishlistContainer}>
       <h2 className={philosopher.className}>Watchlist</h2>
       <div className={`${styles.itemsContainer} ${!wishlist.length && styles.empty }`}>
-      {wishlist.length ? wishlist.map((eachItem : string) => {
+      {wishlist.map((eachItem : string) => {
         return <WishlistItem key={eachItem} productId={eachItem} />
-      }) : <EmptyWishlist />}
+      })}
       </div>
-    </div>
+    </div> : <EmptyWishlist />}
+    </>
+    
   )
 }

@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+min-height: 100vh;
+  /* justify-content: space-evenly; */
+}
+
+
 :root {
   --primary-color: #efebeb;     
   --secondary-color: #363636;
