@@ -27,7 +27,6 @@ export default function ProductView({ product }: Props) {
 
   const [prevImage, setPrevImage] = useState<string>(`${product.images[0]}`);
   const [productImages,setProductImages] = useState<string[]>([])
-
   const [wishlist, setWishlist] = useState<string[]>([])
   const [cart,setCart] = useState<PartialProduct[]>([])
   const [productQuantity,setProductQuantity] = useState<number>(1)
@@ -134,6 +133,7 @@ export default function ProductView({ product }: Props) {
     <div className={styles.productViewContainer}>
       <div className={styles.productDisplayContainer}>
         <Image
+        key={prevImage}
           className={styles.viewingImage}
           src={prevImage}
           alt={product.title}
@@ -159,7 +159,6 @@ export default function ProductView({ product }: Props) {
                   height={100}
                   alt={product.title}
                   onClick={() => setPrevImage(eachImage)}
-                  /* loading="lazy" */
                 />
                 <div className="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
               </SwiperSlide>
