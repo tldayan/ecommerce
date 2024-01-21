@@ -133,7 +133,7 @@ export default function ProductView({ product }: Props) {
     <div className={styles.productViewContainer}>
       <div className={styles.productDisplayContainer}>
         <Image
-        key={prevImage}
+          key={prevImage}
           className={styles.viewingImage}
           src={prevImage}
           alt={product.title}

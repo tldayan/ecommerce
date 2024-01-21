@@ -60,13 +60,11 @@ export default function CategoryProducts({category} : Props) {
                 href={`/pages/products/${eachProduct.id}`}
                 className={styles.productContainer}
               >
-               {/*  {loading && <div className="load_animation_black"></div>} */}
                 <Image
                   className={styles.productImage}
                   src={eachProduct.images[0]}
                   width={200}
                   height={200}
-              /*     sizes="100vw" */
                   alt={eachProduct.title}
                   priority={true}
                 />
