@@ -7,6 +7,8 @@ import { Roboto } from 'next/font/google'
 import styles from "./navbar.module.css"
 import SearchBar from '../SearchComponent/SearchBar'
 import { useAppSelector } from '@/redux/store/store'
+import { useDispatch } from 'react-redux'
+import AuthStateSlice from '@/redux/store/AuthStateSlice'
 
 const roboto = Roboto({
     subsets : ["latin"],
@@ -16,12 +18,20 @@ const roboto = Roboto({
 export default function Navbar() {
 
   const [wishlist, setWishlist] = useState<PartialProduct[]>([])
-  const [cart, setCart] = useState<PartialProduct[]>([])
+  const [cart, setCart] = useState<PartialProduct[]>([]) 
+
+  const dispatch = useDispatch()
 
   const wishlistQuantity = useAppSelector((state) => state.Wishlist.quantity)
   const cartQuantity = useAppSelector((state) => state.Cart.cartQuantity)
   
 
+  const handleAuth = (loginOrSignup : string) => {
+
+      dispatch(AuthStateSlice.actions.setType(loginOrSignup))
+
+    dispatch(AuthStateSlice.actions.setAuth())
+  }
 
   useEffect(() => {
       const storedWishlist = localStorage.getItem("wishlist");
@@ -51,8 +61,8 @@ export default function Navbar() {
             </div>
             
           </Link>
-          <Link href={"/"} className='login_btn'>Log In</Link>
-          <Link href={"/"} className='signup_btn'>Sign Up</Link>
+          <button onClick={() => handleAuth("login")} className={`${styles.login_btn} ${roboto.className}`}>Log In</button>
+          <button onClick={() => handleAuth("signup")} className={`${styles.signup_btn} ${roboto.className}`}>Sign Up</button>
           <Link href={"/pages/cart"}>
             <div className={styles.cartImageContainer}>
             {cart?.length > 0 && (<div className={`${styles.cartQty} ${cart?.length > 0 && styles.active}`}>{cart.length}</div>)}

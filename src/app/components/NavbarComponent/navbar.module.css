@@ -107,12 +107,15 @@
     cursor: pointer;
 }
 
-.navbarButtons > a {
+.navbarButtons > button {
+    border: none;
+    outline: none;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
-.navbarButtons > a:hover {
+.navbarButtons > button:hover {
     text-decoration: underline;
 }
 

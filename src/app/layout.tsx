@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/NavbarComponent/Navbar";
 import { ReduxProvider } from "@/redux/provider";
 import Footer from "./components/Footer/Footer";
-
+import LoginSignupComponent from "../app/components/LoginSignupComponent/LoginSignupComponent"
 
 
 export const metadata: Metadata = {
@@ -22,6 +22,7 @@ export default function RootLayout({
       <body>
         <ReduxProvider>
         <Navbar />
+        <LoginSignupComponent />
         {children}
         <Footer />
         </ReduxProvider>

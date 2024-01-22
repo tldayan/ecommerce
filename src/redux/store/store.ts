@@ -1,17 +1,15 @@
 import {configureStore} from "@reduxjs/toolkit"
-import MongoConnectedSlice from "./MongoConnectedSlice"
-import PageLoadingSlice from "./PageLoadingSlice"
 import { TypedUseSelectorHook, useSelector } from "react-redux"
 import CartSlice from "./CartSlice"
 import WishlistSlice from "./WishlistSlice"
+import AuthStateSlice from "./AuthStateSlice"
 
 
 const store = configureStore({
     reducer : {
-        MongoDBConnectedStatus : MongoConnectedSlice.reducer,
-        PageLoading : PageLoadingSlice.reducer,
         Cart : CartSlice.reducer,
-        Wishlist : WishlistSlice.reducer
+        Wishlist : WishlistSlice.reducer,
+        Auth : AuthStateSlice.reducer
     }
 })
 
