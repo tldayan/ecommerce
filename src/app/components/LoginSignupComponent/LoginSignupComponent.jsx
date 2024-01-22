@@ -1,5 +1,5 @@
 "use client"
-import React, { use, useEffect, useRef, useState } from 'react'
+import React, {useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
 import styles from "./LoginSignup.module.css"
@@ -26,9 +26,12 @@ useEffect(() => {
 },[isLoggingIn])
 
 
-const bodyElement = document.querySelector("body")
+
+
 
     useEffect(() => {
+
+ const bodyElement = document.querySelector("body") 
 
         if(!isUserAuth) {
             loginSignupContainer.current.style.opacity = 0
