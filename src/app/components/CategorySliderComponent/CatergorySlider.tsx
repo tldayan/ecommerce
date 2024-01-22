@@ -113,7 +113,6 @@ export default function CatergorySlider({ products }: Props) {
                   src={eachProduct.images[0]}
                   width={200}
                   height={200}
-                  /* sizes="100vw" */
                   alt={eachProduct.title}
                   onLoad={handleLoadingComplete}
                   priority={true}

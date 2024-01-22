@@ -36,7 +36,6 @@ export default function CategoryProducts({category} : Props) {
 
     fetchCategoryProducts()
 
-    
   },[category])
   
 
