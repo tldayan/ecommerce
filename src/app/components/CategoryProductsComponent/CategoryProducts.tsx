@@ -36,6 +36,7 @@ export default function CategoryProducts({category} : Props) {
 
     fetchCategoryProducts()
 
+    
   },[category])
   
 
@@ -49,7 +50,7 @@ export default function CategoryProducts({category} : Props) {
         breakpoints={responsiveSwiper}
         loop={true}
       >
-        {products.map((eachProduct : product) => {
+        {products.length ? products.map((eachProduct : product) => {
           return (
             <SwiperSlide
               key={eachProduct.id}
@@ -77,7 +78,7 @@ export default function CategoryProducts({category} : Props) {
               </Link>
             </SwiperSlide>
           );
-        })}
+        }) : <div className={styles.load_animation_black}></div>}
       </Swiper>
     </div>
   )
