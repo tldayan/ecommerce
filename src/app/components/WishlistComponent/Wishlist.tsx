@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import styles from "./Wishlist.module.css"
 import WishlistItem from '../WishlistItem/WishlistItem'
-import { philosopher } from '../../../../libs/allFonts'
+import { philosopher, quicksand } from '../../../../libs/allFonts'
 import EmptyWishlist from '../EmptyWishlist/EmptyWishlist'
 
 export default function Wishlist() {
@@ -25,7 +25,7 @@ const wishlistData = localStorage.getItem("wishlist")
   return (
     <>
     {wishlist.length ? <div className={styles.wishlistContainer}>
-      <h2 className={philosopher.className}>Watchlist</h2>
+      <h2 className={quicksand.className}>Wishlist</h2>
       <div className={`${styles.itemsContainer} ${!wishlist.length && styles.empty }`}>
       {wishlist.map((eachItem : string) => {
         return <WishlistItem key={eachItem} productId={eachItem} />

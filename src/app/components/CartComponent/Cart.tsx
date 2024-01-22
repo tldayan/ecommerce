@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import styles from "./Cart.module.css"
 import Image from 'next/image'
-import { philosopher,cormant_infant, lato } from '../../../../libs/allFonts'
+import { philosopher,cormant_infant, lato, quicksand } from '../../../../libs/allFonts'
 import { useDispatch } from 'react-redux'
 import { CartSliceActions } from '@/redux/store/CartSlice'
 import { WishlistSliceActions } from '@/redux/store/WishlistSlice'
@@ -121,7 +121,7 @@ export default function Cart() {
     <>
     {cart.length ? <div className={styles.mainCartContainer}>
         <div className={styles.cartContainer}>
-            <h1>Cart</h1>
+            <h1 className={quicksand.className}>Cart</h1>
             <p>The prices of some products in your cart may have changed, Please review your cart before proceeding</p>
             <div className={styles.cartlistContainer}>
                 {cart.map(eachItem => {

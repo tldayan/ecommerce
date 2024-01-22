@@ -28,7 +28,7 @@
 }
 
 .cartContainer > h1 {
-    font-family: sans-serif;
+    font-weight: bold;
     font-size: clamp(1.3rem, 3vw, 1.7rem);
 }
 
