@@ -69,7 +69,7 @@ useEffect(() => {
                   <input type="password" name="" placeholder='Enter password' id="user_password" required />
                 </div>
                 <button className={styles.loginSignup_btn}>{islogin ? "Login" : "Sign up"}</button>
-                {islogin ? <Link href="/" onClick={() => setIsLogin(false)} className={styles.no_account} >Don't have an account? Sign up.</Link> : <Link href="/" onClick={() => setIsLogin(true)} className={styles.existing_account} >Already have an account? Log in.</Link>}
+                {islogin ? <Link href="/" onClick={() => setIsLogin(false)} className={styles.no_account} >Don&apos;t have an account? Sign up.</Link> : <Link href="/" onClick={() => setIsLogin(true)} className={styles.existing_account} >Already have an account? Log in.</Link>}
               </form>
             </div>
     </>
