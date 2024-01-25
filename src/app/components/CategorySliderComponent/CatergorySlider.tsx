@@ -20,7 +20,6 @@ const responsiveSwiper = {
 };
 
 export default function CatergorySlider({ products }: Props) {
-  const [loading, setLoading] = React.useState(true);
 
   const [wishlist, setWishlist] = useState<string[]>([])
 
@@ -78,10 +77,6 @@ export default function CatergorySlider({ products }: Props) {
     }
   }
 
-  const handleLoadingComplete = () => {
-    setLoading(false);
-  };
-
   return (
     <>
       {products[0]?.category && (
@@ -114,7 +109,6 @@ export default function CatergorySlider({ products }: Props) {
                   width={200}
                   height={200}
                   alt={eachProduct.title}
-                  onLoad={handleLoadingComplete}
                   priority={true}
                 />
                 <div className={styles.productDetails}>

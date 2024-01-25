@@ -340,7 +340,7 @@ position: relative;
     display: flex;
     align-items: center;
     gap: 6px;
-    color: rgb(89, 89, 89);
+    color: rgba(89, 89, 89, 0.773);
 }
 
 

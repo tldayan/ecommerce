@@ -27,7 +27,7 @@ export default function CategoryProducts({category} : Props) {
 
     const fetchCategoryProducts = async() => {
 
-      const categorisedProducts = await fetch(`https://ecomxpress.vercel.app/api/categorisedproducts?category=${category}`)
+      const categorisedProducts = await fetch(`http://localhost:3000/api/categorisedproducts?category=${category}`)
 
       const products = await categorisedProducts.json()
 
@@ -50,7 +50,7 @@ export default function CategoryProducts({category} : Props) {
         breakpoints={responsiveSwiper}
         loop={true}
       >
-        {products.length ? products.map((eachProduct : product) => {
+        {products.map((eachProduct : product) => {
           return (
             <SwiperSlide
               key={eachProduct.id}
@@ -78,7 +78,7 @@ export default function CategoryProducts({category} : Props) {
               </Link>
             </SwiperSlide>
           );
-        }) : <div className={styles.load_animation_black}></div>}
+        })}
       </Swiper>
     </div>
   )
