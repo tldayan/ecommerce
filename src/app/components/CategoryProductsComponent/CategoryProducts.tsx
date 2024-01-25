@@ -27,7 +27,7 @@ export default function CategoryProducts({category} : Props) {
 
     const fetchCategoryProducts = async() => {
 
-      const categorisedProducts = await fetch(`http://localhost:3000/api/categorisedproducts?category=${category}`)
+      const categorisedProducts = await fetch(`http://ecomxpress.vercel.app/api/categorisedproducts?category=${category}`)
 
       const products = await categorisedProducts.json()
 
