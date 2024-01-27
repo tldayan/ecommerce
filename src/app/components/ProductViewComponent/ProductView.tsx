@@ -12,6 +12,7 @@ import {
 import { useDispatch} from "react-redux";
 import { CartSliceActions } from "@/redux/store/CartSlice";
 import { WishlistSliceActions } from "@/redux/store/WishlistSlice";
+import conversions from "../../../../libs/currencyConversions";
 
 type Props = {
   product: product;
@@ -30,8 +31,18 @@ export default function ProductView({ product }: Props) {
   const [wishlist, setWishlist] = useState<string[]>([])
   const [cart,setCart] = useState<PartialProduct[]>([])
   const [productQuantity,setProductQuantity] = useState<number>(1)
- 
+  const [currency,setCurrency] = useState("")
 
+
+
+ useEffect(() => {
+
+  const storedIntialCurrency = localStorage.getItem("currency")
+  const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
+
+  setCurrency(initialCurrency)
+
+},[])
 
   useEffect(() => {
 
@@ -178,13 +189,13 @@ export default function ProductView({ product }: Props) {
           <p>
             Was:{" "}
             <span className={`${styles.old_price} ${cormant_infant.className}`}>
-              {product.old_price}.00
+            {(product.price * conversions[currency]).toLocaleString()}.00 {currency}
             </span>
           </p>
           <p className={styles.price_container}>
             Now:{" "}
             <span className={`${styles.price} ${cormant_infant.className}`}>
-              {product.price}.00
+            {(product.price * conversions[currency]).toLocaleString()}.00 {currency}
             </span>
             <span className={styles.vat}>(Inclusive of VAT)</span>
             <span className={styles.discount}>
@@ -209,7 +220,7 @@ export default function ProductView({ product }: Props) {
               alt="tamara"
             />
             <p>
-              Pay 4 interest-free payments of AED 8.25.{" "}
+              Pay 4 interest-free payments of {currency} 8.25.{" "}
               <Link className={styles.learn_more} href={"/"}>
                 Learn more
               </Link>
@@ -224,7 +235,7 @@ export default function ProductView({ product }: Props) {
               alt="tabby"
             />
             <p>
-              Pay 4 interest-free payments of AED 8.25.{" "}
+              Pay 4 interest-free payments of {currency} 8.25.{" "}
               <Link className={styles.learn_more} href={"/"}>
                 Learn more
               </Link>
@@ -233,7 +244,7 @@ export default function ProductView({ product }: Props) {
         </div>
 
         <p className={styles.payment_plan}>
-          Monthly payment plans from AED 33.&nbsp;
+          Monthly payment plans from {currency} 33.&nbsp;
           <Link className={styles.more_details} href={"/"}>View more details</Link>
         </p>
 
@@ -322,7 +333,7 @@ export default function ProductView({ product }: Props) {
           <div className={styles.benefitContainer}>
             <h3>Trusted Shipping</h3>
             <p>
-              Free shipping when you spend AED 100 and above on express items
+              Free shipping when you spend {currency} 100 and above on express items
             </p>
           </div>
 

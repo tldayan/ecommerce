@@ -1,7 +1,7 @@
 "use client"
 import React, {useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-
+import "../../../app/globals.css"
 import styles from "./LoginSignup.module.css"
 import { useAppSelector } from '@/redux/store/store'
 import { useDispatch } from 'react-redux'
@@ -55,7 +55,7 @@ useEffect(() => {
 
   return (
     <>
-     <div ref={overlay} className={styles.dark_overlay}></div>
+     <div ref={overlay} className="dark_overlay"></div>
     <div ref={loginSignupContainer} className={styles.main_login_signup_container}>
               <button onClick={handleAuthClose} href="/" className={styles.close_modal_button}>&#x2716;</button>
                       <h3 className={styles.auth_type}>{islogin ? "Login" : "Sign up"}</h3>

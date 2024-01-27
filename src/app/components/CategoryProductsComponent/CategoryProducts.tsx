@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from 'next/link';
 import { cormant_infant, philosopher } from '../../../../libs/allFonts';
+import conversions from '../../../../libs/currencyConversions';
 
 type Props = {
     category : string
@@ -21,6 +22,18 @@ const responsiveSwiper = {
 export default function CategoryProducts({category} : Props) {
 
   const [products,setProducts] = useState<product[]>([])
+  const [currency,setCurrency] = useState("")
+
+
+
+ useEffect(() => {
+
+  const storedIntialCurrency = localStorage.getItem("currency")
+  const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
+
+  setCurrency(initialCurrency)
+
+},[])
 
 
   useEffect(() => {
@@ -72,7 +85,7 @@ export default function CategoryProducts({category} : Props) {
                 <div className={styles.productDetails}>
                   <p className={philosopher.className}>{eachProduct.title}</p>
                   <span className={cormant_infant.className}>
-                    {eachProduct.price.toLocaleString()} AED
+                  {(eachProduct.price * conversions[currency]).toLocaleString()} {currency}
                   </span>
                 </div>
               </Link>

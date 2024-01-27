@@ -9,17 +9,29 @@ import { CartSliceActions } from '@/redux/store/CartSlice'
 import { WishlistSliceActions } from '@/redux/store/WishlistSlice'
 import EmptyCart from '../EmptyCart/EmptyCart'
 import Link from 'next/link'
+import conversions from '../../../../libs/currencyConversions'
 
 export default function Cart() {
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    const [wishlist, setWishlist] = useState<string[]>([])
-    const [cart,setCart] = useState<PartialProduct[]>([])
-    const [cartTotal,setCartTotal] = useState<number>(0)
-
+  const [wishlist, setWishlist] = useState<string[]>([])
+  const [cart,setCart] = useState<PartialProduct[]>([])
+  const [cartTotal,setCartTotal] = useState<number>(0)
   const [wishlistCalls, setWishlistCalls] = useState(0)
   const [cartCalls, setCartCalls] = useState(0)
+  const [currency,setCurrency] = useState("")
+
+
+
+  useEffect(() => {
+ 
+   const storedIntialCurrency = localStorage.getItem("currency")
+   const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
+ 
+   setCurrency(initialCurrency)
+ 
+ },[])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -133,7 +145,7 @@ export default function Cart() {
                       <Link href={`./products/${eachItem.id}`} className={styles.ItemDetailsContainer} >
                         <p>{eachItem.brand}</p>
                         <h3 className={`${styles.productName} ${philosopher.className}`}>{eachItem.title}</h3> 
-                        <span className={cormant_infant.className}>{eachItem.price}.00</span>
+                        <span className={cormant_infant.className}>{(eachItem.price && (eachItem.price * conversions[currency]).toLocaleString())}.00 {currency ? currency : "..."}</span>
                       </Link>
                       <button onClick={() => handleWishlist(eachItem.id)} className={`${styles.wishlist_btn} ${wishlist?.includes(eachItem.id.toString()) && styles.active }`}>{wishlist.includes(eachItem.id.toString()) ? "In" : "+" } Wishlist</button>
                       </div>
@@ -159,7 +171,7 @@ export default function Cart() {
             <div className={styles.summaryDetailsContainer}>
               <div className={styles.subtotalContainer}>
                 <p>Subtotal({cart.length} items)</p>
-                <span>{cartTotal}.00</span>
+                <span>{(cartTotal * conversions[currency]).toLocaleString()} {currency}</span>
               </div>
               <div className={styles.shippingDetailsContainer}>
                 <p>Shipping Details</p>
@@ -170,7 +182,7 @@ export default function Cart() {
             <div className={styles.checkoutContainer}>
               <div className={styles.totalContainer}>
                 <div className={`${styles.totalText} ${lato.className}`}>Total <span className={styles.vat}>(Inclusive of VAT)</span></div>
-                <span className={styles.total}>{cartTotal}.00</span>
+                <span className={styles.total}>{(cartTotal * conversions[currency]).toLocaleString()}.00 {currency ? currency : "..."}</span>
               </div>
               <p className={styles.payment_plan}>
                 Monthly payment plans from AED 500.

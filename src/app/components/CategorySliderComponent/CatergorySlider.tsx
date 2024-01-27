@@ -7,6 +7,7 @@ import styles from "./CatergorySlider.module.css";
 import { cormant_infant, jose, philosopher } from "../../../../libs/allFonts";
 import { useDispatch } from "react-redux";
 import { WishlistSliceActions } from "@/redux/store/WishlistSlice";
+import conversions from "../../../../libs/currencyConversions"
 
 type Props = {
   products: product[];
@@ -22,8 +23,20 @@ const responsiveSwiper = {
 export default function CatergorySlider({ products }: Props) {
 
   const [wishlist, setWishlist] = useState<string[]>([])
-
   const [wishlistCalls, setWishlistCalls] = useState(0)
+  const [currency,setCurrency] = useState("")
+ const dispatch = useDispatch() 
+
+
+
+ useEffect(() => {
+
+  const storedIntialCurrency = localStorage.getItem("currency")
+  const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
+
+  setCurrency(initialCurrency)
+
+},[])
 
 
   useEffect(() => {
@@ -37,8 +50,7 @@ export default function CatergorySlider({ products }: Props) {
   
 
 
-
-  const dispatch = useDispatch()  
+  
 
   const handleWishlist = (productId: number) => {
 
@@ -114,7 +126,7 @@ export default function CatergorySlider({ products }: Props) {
                 <div className={styles.productDetails}>
                   <p className={philosopher.className}>{eachProduct.title}</p>
                   <span className={cormant_infant.className}>
-                    {eachProduct.price.toLocaleString()} AED
+                    {(eachProduct.price * conversions[currency]).toLocaleString()} {currency}
                   </span>
                 </div>
               </Link>

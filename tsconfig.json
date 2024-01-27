@@ -22,6 +22,17 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "libs/fetchProducts.js", "src/app/api/loadingSkeletons/loading.tsx", "src/redux/store/CartSlice.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "libs/fetchProducts.js",
+    "src/app/api/loadingSkeletons/loading.tsx",
+    "src/redux/store/CartSlice.ts",
+    "src/app/components/NavbarComponent/Navbar.tsx",
+    "src/app/components/LoginSignupComponent/LoginSignupComponent.jsx",
+    "src/app/components/CurrencyModal/currencyModal.jsx"
+  ],
   "exclude": ["node_modules"]
 }

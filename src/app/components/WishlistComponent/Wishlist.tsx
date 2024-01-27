@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import styles from "./Wishlist.module.css"
 import WishlistItem from '../WishlistItem/WishlistItem'
-import { philosopher, quicksand } from '../../../../libs/allFonts'
+import {quicksand } from '../../../../libs/allFonts'
 import EmptyWishlist from '../EmptyWishlist/EmptyWishlist'
 
 export default function Wishlist() {
