@@ -29,13 +29,14 @@ export default function CurrencyModal({ setIsSelectingCurrency,currency,setCurre
 
     useEffect(() => {
         const bodyElement = document.querySelector("body");
+        let overlayRef = overlay.current; // Copy overlay.current to a variable
     
         if (bodyElement) {
             bodyElement.style.overflow = "hidden";
         }
     
-        if (overlay.current) {
-            overlay.current.style.visibility = "visible";
+        if (overlayRef) {
+            overlayRef.style.visibility = "visible";
         }
     
         return () => {
@@ -43,11 +44,12 @@ export default function CurrencyModal({ setIsSelectingCurrency,currency,setCurre
                 bodyElement.style.overflow = "";
             }
     
-            if (overlay.current) {
-                overlay.current.style.visibility = "hidden";
+            if (overlayRef) {
+                overlayRef.style.visibility = "hidden";
             }
         };
     }, []);
+    
     
 
 
