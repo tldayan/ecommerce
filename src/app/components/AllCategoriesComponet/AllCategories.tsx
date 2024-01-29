@@ -12,8 +12,10 @@ export default function AllCategories() {
   const [allcategories, setAllCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+
   useEffect(() => {
     const fetchAllProducts = async () => {
+      
       const data = await fetch(`https://ecomxpress.vercel.app/api/products`);
       /* https://localhost:3000 */
 
@@ -38,6 +40,8 @@ export default function AllCategories() {
     fetchAllProducts();
   }, []);
 
+
+
   useEffect(() => {
     setCategories((prevCategories) => {
       const selectedCategoryIndex = prevCategories.indexOf(category);
@@ -49,6 +53,8 @@ export default function AllCategories() {
       return updatedCategories;
     });
   }, [category]);
+
+
 
   return (
     <>

@@ -3,8 +3,8 @@
 
 /*     border: 1px solid black; */
     opacity: 0.5;
-    width: 90%;
-    margin: 170px auto;
+    width: 98%;
+    margin: 150px auto;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -20,7 +20,6 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 60px -8px hsl(210, 14%, 80%);
-/*     border: 1px solid rgb(213, 218, 223); */
   }
   
   .cover {
@@ -34,7 +33,7 @@
     opacity: .95;
   }
   
-  /* add to img on load event */
+
   .animate {
     animation: animate 1s ease;
   }
@@ -97,3 +96,16 @@
     }
   }
   
+
+  @media (max-width: 700px) {
+
+    .skeletonContainer {
+      gap: 150px 5px;
+    }
+
+    .card {
+      width: 200px;
+      height: 220px;
+    }
+
+  }

@@ -18,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /></head>
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <script defer src="https://kit.fontawesome.com/3b161c540c.js" crossOrigin="anonymous"></script>
+      </head>
       <body>
         <ReduxProvider>
         <Navbar />

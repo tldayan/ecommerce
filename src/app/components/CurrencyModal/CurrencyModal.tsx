@@ -29,7 +29,7 @@ export default function CurrencyModal({ setIsSelectingCurrency,currency,setCurre
 
     useEffect(() => {
         const bodyElement = document.querySelector("body");
-        let overlayRef = overlay.current; // Copy overlay.current to a variable
+        let overlayRef = overlay.current; 
     
         if (bodyElement) {
             bodyElement.style.overflow = "hidden";

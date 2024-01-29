@@ -57,7 +57,6 @@ export default function Cart() {
       return totalPrice + accum
     },0)
 
-
     setCartTotal(totalCost)
 
   },[cart])
@@ -98,6 +97,7 @@ export default function Cart() {
       localStorage.setItem("wishlist", JSON.stringify(initialWishlist))
     }
   }
+  
 
   const deleteItem = (productId: number) => {
     
@@ -170,7 +170,7 @@ export default function Cart() {
             
             <div className={styles.summaryDetailsContainer}>
               <div className={styles.subtotalContainer}>
-                <p>Subtotal({cart.length} items)</p>
+                <p>Subtotal ({cart.length} items)</p>
                 <span>{(cartTotal * conversions[currency]).toLocaleString()} {currency}</span>
               </div>
               <div className={styles.shippingDetailsContainer}>
@@ -185,7 +185,7 @@ export default function Cart() {
                 <span className={styles.total}>{(cartTotal * conversions[currency]).toLocaleString()}.00 {currency ? currency : "..."}</span>
               </div>
               <p className={styles.payment_plan}>
-                Monthly payment plans from AED 500.
+                Monthly payment plans from AED 500.&nbsp;
                 <Link className={styles.more_details} href={"/"}>View more details</Link>
               </p>
               <button className={`${styles.checkoutButton} ${lato.className}`}>CHECKOUT</button>
