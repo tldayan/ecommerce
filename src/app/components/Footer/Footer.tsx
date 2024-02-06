@@ -10,8 +10,8 @@ export default function Footer() {
     <>
     <footer className={styles.mainFooter}>
 		<div className={styles.container}>
-    {/* <p className={styles.logo}>ECOMEXPRESS</p> */}
-
+    
+		{/* <p className={styles.logo}>ECOMEXPRESS</p> */}
 			<div className={styles.footer_col}>
 				<h4>company</h4>
 				<ul>
