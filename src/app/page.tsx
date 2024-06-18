@@ -1,4 +1,4 @@
-"use client"
+
 
 import AllCategories from "./components/AllCategoriesComponet/AllCategories";
 import BrandBanner from "./components/BrandBannerComponent/BrandBanner";

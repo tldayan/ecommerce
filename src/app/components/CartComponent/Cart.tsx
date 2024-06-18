@@ -1,6 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState, useRef } from 'react'
 import styles from "./Cart.module.css"
 import Image from 'next/image'
 import { philosopher,cormant_infant, lato, quicksand } from '../../../../libs/allFonts'
@@ -10,10 +9,16 @@ import { WishlistSliceActions } from '@/redux/store/WishlistSlice'
 import EmptyCart from '../EmptyCart/EmptyCart'
 import Link from 'next/link'
 import conversions from '../../../../libs/currencyConversions'
+import handleStripe from '../../../../libs/handleStripe'
+import PageLoading from '../PageLoading/PageLoading'
+
+
 
 export default function Cart() {
 
   const dispatch = useDispatch()
+  const checkoutButton = useRef<HTMLButtonElement>(null);
+
 
   const [wishlist, setWishlist] = useState<string[]>([])
   const [cart,setCart] = useState<PartialProduct[]>([])
@@ -21,15 +26,24 @@ export default function Cart() {
   const [wishlistCalls, setWishlistCalls] = useState(0)
   const [cartCalls, setCartCalls] = useState(0)
   const [currency,setCurrency] = useState("")
+  const [loading,setLoading] = useState<Boolean>(true)
 
 
-
+  const handleCheckoutClick = () => {
+    if(checkoutButton.current) {
+      checkoutButton.current.disabled = true;
+      checkoutButton.current.style.cursor = "wait"
+    }
+  }
+  
   useEffect(() => {
  
-   const storedIntialCurrency = localStorage.getItem("currency")
-   const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
- 
-   setCurrency(initialCurrency)
+    if(typeof window !== "undefined") {
+      const storedIntialCurrency = localStorage.getItem("currency")
+      const initialCurrency  = storedIntialCurrency ? JSON.parse(storedIntialCurrency) : "AED"
+
+    setCurrency(initialCurrency)
+  }
  
  },[])
 
@@ -42,9 +56,12 @@ export default function Cart() {
   }, [wishlistCalls]);
 
   useEffect(() => {
-    const storedcart = localStorage.getItem("cart")
+    if(typeof window !== "undefined") {
+      const storedcart = localStorage.getItem("cart")
     const initialCart = storedcart ? JSON.parse(storedcart) : [];
     setCart(initialCart)
+    setLoading(false)
+    }
   },[cartCalls])
   
 
@@ -121,7 +138,7 @@ export default function Cart() {
     }
   
     const updatedCart: PartialProduct[] = cart.map((product) =>
-      product.id === id ? { ...product, productQuantity: parsedQuantity === 0 ? 1 : parsedQuantity } : product
+      product.id === id ? { ...product, productQuantity: parsedQuantity } : product
     );
   
     localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -131,6 +148,7 @@ export default function Cart() {
 
   return (
     <>
+    {loading && <PageLoading />}
     {cart.length ? <div className={styles.mainCartContainer}>
         <div className={styles.cartContainer}>
             <h1 className={quicksand.className}>Cart</h1>
@@ -188,7 +206,7 @@ export default function Cart() {
                 Monthly payment plans from AED 500.&nbsp;
                 <Link className={styles.more_details} href={"/"}>View more details</Link>
               </p>
-              <button className={`${styles.checkoutButton} ${lato.className}`}>CHECKOUT</button>
+              <button ref={checkoutButton} onClick={() => {handleStripe(); handleCheckoutClick()}} className={`${styles.checkoutButton} ${lato.className}`}>CHECKOUT</button>
             </div>
         </div>  
     </div> : <EmptyCart />}
