@@ -25,7 +25,7 @@ const filteredCart = cart.map(eachObj => {
 
         const stripe = await loadStripe(`pk_test_51PSDezRpj65u8bPMNzmafgBLp6lRTTQSo74iBNzfyIzfwKsGofLInQdYxbHYsbNHFOOrEIjobx5DpRoKMMW4twvo00VIbievJM`)
 
-        const stripeReq = await fetch("http://localhost:3400/create-stripe-session",{
+        const stripeReq = await fetch("https://ecomxpress.vercel.app/create-stripe-session",{
             method : 'POST',
             body : JSON.stringify({"products" : filteredCart, "currency" : currency.toLowerCase()}),
             headers : {
