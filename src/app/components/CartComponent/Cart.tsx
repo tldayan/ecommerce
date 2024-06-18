@@ -19,7 +19,7 @@ export default function Cart() {
   const dispatch = useDispatch()
   const checkoutButton = useRef<HTMLButtonElement>(null);
 
-
+  const [paymentStage,setPaymentStage] = useState<string>("CHECKOUT")
   const [wishlist, setWishlist] = useState<string[]>([])
   const [cart,setCart] = useState<PartialProduct[]>([])
   const [cartTotal,setCartTotal] = useState<number>(0)
@@ -33,7 +33,10 @@ export default function Cart() {
     if(checkoutButton.current) {
       checkoutButton.current.disabled = true;
       checkoutButton.current.style.cursor = "wait"
+      checkoutButton.current.style.backgroundColor = 'grey'
     }
+
+    setPaymentStage("PROCESSING...")
   }
   
   useEffect(() => {
@@ -206,7 +209,7 @@ export default function Cart() {
                 Monthly payment plans from AED 500.&nbsp;
                 <Link className={styles.more_details} href={"/"}>View more details</Link>
               </p>
-              <button ref={checkoutButton} onClick={() => {handleStripe(); handleCheckoutClick()}} className={`${styles.checkoutButton} ${lato.className}`}>CHECKOUT</button>
+              <button ref={checkoutButton} onClick={() => {handleStripe(); handleCheckoutClick()}} className={`${styles.checkoutButton} ${lato.className}`}>{paymentStage}</button>
             </div>
         </div>  
     </div> : <EmptyCart />}
