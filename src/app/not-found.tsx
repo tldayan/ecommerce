@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
+import NotFound from './pages/NotFound/page'; // Adjust the path as per your project structure
 
-export default function notfound() {
-  return (
-    <div>not-found</div>
-  )
+export default function NotFoundPage() {
+  return <NotFound />;
 }
