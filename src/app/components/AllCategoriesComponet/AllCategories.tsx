@@ -16,7 +16,7 @@ export default function AllCategories() {
   useEffect(() => {
     const fetchAllProducts = async () => {
       
-      const data = await fetch(`http://localhost:3000/api/products`);
+      const data = await fetch(`https://ecomxpress.vercel.app/api/products`);
       /* https://localhost:3000 */
 
       const products = await data.json();
