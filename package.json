@@ -11,6 +11,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@stripe/stripe-js": "^3.5.0",
+    "@stytch/nextjs": "^20.0.0",
+    "@stytch/vanilla-js": "^4.12.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -22,6 +24,7 @@
     "react-redux": "^9.0.4",
     "redux": "^5.0.0",
     "stripe": "^15.12.0",
+    "stytch": "^10.18.0",
     "swiper": "^11.0.5"
   },
   "devDependencies": {

@@ -74,7 +74,6 @@ export default function SearchBar() {
           width={24}
           height={24}
           className='search_icon'
-          
           />
 
       <div className={styles.mainSearchResultsContainer} ref={searchResultsContainer}>

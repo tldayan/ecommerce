@@ -4,6 +4,8 @@ import Navbar from "./components/NavbarComponent/Navbar";
 import { ReduxProvider } from "@/redux/provider";
 import Footer from "./components/Footer/Footer";
 import LoginSignupComponent from "../app/components/LoginSignupComponent/LoginSignupComponent"
+import StytchProviderComponent from "./providers/StytchProviderComponent";
+
 
 
 export const metadata: Metadata = {
@@ -24,10 +26,14 @@ export default function RootLayout({
       </head>
       <body>
         <ReduxProvider>
-        <Navbar />
-        <LoginSignupComponent />
-        {children}
-        <Footer />
+
+          <StytchProviderComponent>
+            <Navbar />
+            <LoginSignupComponent />
+          
+          {children}
+          </StytchProviderComponent>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>

@@ -1,5 +1,5 @@
 /* LOGIN & SIGNUP  */
-.main_login_signup_container {
+.main_modal_container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -52,6 +52,12 @@
   
   .forgot_password:hover {
     color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .reset_password_notice {
+    text-align: center;
+    font-family: "Quicksand";
   }
   
   .email_container {
@@ -117,6 +123,21 @@
   .no_account:hover, .existing_account:hover {
     text-decoration: underline;
     color: black;
+  }
+
+  .server_auth_notice {
+    color: red;
+    text-align: center;
+    font-family: "Quicksand";
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .email_sent_notice {
+    color: rgb(0, 236, 118);
+    text-align: center;
+    font-family: "Quicksand";
+    font-weight: bold;
   }
 
 /*   .dark_overlay {

@@ -11,13 +11,31 @@ import AuthStateSlice from "@/redux/store/AuthStateSlice";
 import "../../../app/globals.css";
 import CurrencyModal from "../CurrencyModal/CurrencyModal";
 import { roboto } from "../../../../libs/allFonts";
+import { useStytch } from "@stytch/nextjs";
+
+interface UserLoggedValue {
+  session: string | null;
+}
 
 export default function Navbar() {
+
+  const stytchClient = useStytch()
+  
   const [wishlist, setWishlist] = useState<PartialProduct[]>([]);
   const [cart, setCart] = useState<PartialProduct[]>([]);
   const [currency, setCurrency] = useState<string>("");
   const [isSelectingCurrency,setIsSelectingCurrency] = useState(false)
-  
+  const [isUserLogged, setIsUserLogged] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedUserLoggedValue = localStorage.getItem("stytch_sdk_state_public-token-test-054202e6-a29f-4e07-b0cd-1cd883b4763e");
+      let userLoggedValue: UserLoggedValue | null = storedUserLoggedValue ? JSON.parse(storedUserLoggedValue) : null;
+      setIsUserLogged(userLoggedValue !== null && userLoggedValue.session !== null);
+    }
+  }, []);
+
+
   const wishlistQuantity = useAppSelector((state) => state.Wishlist.quantity);
   const cartQuantity = useAppSelector((state) => state.Cart.cartQuantity);
   const dispatch = useDispatch();
@@ -35,6 +53,12 @@ export default function Navbar() {
     setCurrency(initialCurrency)
 
   },[currency])
+
+  const handleLogout = async(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
+    await stytchClient.session.revoke()
+    window.location.reload()
+  }
 
 
   const handleAuth = (loginOrSignup: string) => {
@@ -87,18 +111,13 @@ export default function Navbar() {
               />
             </div>
           </Link>
-          <button
-            onClick={() => handleAuth("login")}
-            className={`${styles.login_btn} ${roboto.className}`}
-          >
-            Log In
-          </button>
-          <button
-            onClick={() => handleAuth("signup")}
-            className={`${styles.signup_btn} ${roboto.className}`}
-          >
-            Sign Up
-          </button>
+
+          {!isUserLogged &&
+            <>
+              <button onClick={() => handleAuth("login")} className={`${styles.login_btn} ${roboto.className}`}>Log In</button>
+              <button onClick={() => handleAuth("signup")} className={`${styles.signup_btn} ${roboto.className}`}>Sign Up</button>
+            </>}
+            {isUserLogged && <button onClick={handleLogout} className={`${styles.logout_btn} ${roboto.className}`}>Logout</button>}
           <Link href={"/pages/cart"}>
             <div className={styles.cartImageContainer}>
               {cart?.length > 0 && (

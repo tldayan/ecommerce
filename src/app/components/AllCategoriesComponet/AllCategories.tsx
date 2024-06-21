@@ -12,7 +12,6 @@ export default function AllCategories() {
   const [allcategories, setAllCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-
   useEffect(() => {
     const fetchAllProducts = async () => {
       

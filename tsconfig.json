@@ -33,6 +33,6 @@
     "src/app/components/NavbarComponent/Navbar.tsx",
     "src/app/components/LoginSignupComponent/LoginSignupComponent.jsx",
     "src/app/components/CurrencyModal/currencyModal.jsx"
-, "src/app/pages/404.tsx"  ],
+, "src/app/pages/404.tsx", "src/app/components/ResetPasswordComponent/ResetPassword.jsx"  ],
   "exclude": ["node_modules"]
 }

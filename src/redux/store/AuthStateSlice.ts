@@ -1,10 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+let isResettingPassword
 
+if (typeof window !== 'undefined') {
+  isResettingPassword = window.location.href.includes('/resetpassword');
+}
 
 const AuthStateSlice = createSlice({
     name : "Auth",
-    initialState : {isAuth : false, isLoggingIn : false},
+    initialState : {isAuth : isResettingPassword ? true : false, isLoggingIn : false},
     reducers : {
         setAuth(state) {
             if(state.isAuth) {
