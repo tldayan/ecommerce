@@ -59,7 +59,7 @@ export default function EmptyCart() {
   </svg>
 
   <h3 className={quicksand.className}>Your Cart Is Empty!</h3>
-  <p className={quicksand.className}>Ready to fill your cart? Start shopping to add items!</p>
+  <p className={`${quicksand.className} ${styles.emptyCard_notice}`}>Ready to fill your cart? Start shopping to add items!</p>
   <Link href={"/"} className={`${quicksand.className} ${styles.homeButton}`}>Start Shopping!</Link>
 </div>
   )

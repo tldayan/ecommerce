@@ -7,6 +7,12 @@
     align-items: center;
     justify-content: center;
   }
+
+
+  .emptyCard_notice {
+    text-align: center;
+  }
+
   .svgImage {
     width: 30vw;
     height: auto;
