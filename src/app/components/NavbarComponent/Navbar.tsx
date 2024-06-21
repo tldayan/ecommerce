@@ -29,7 +29,7 @@ export default function Navbar() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const storedUserLoggedValue = localStorage.getItem("stytch_sdk_state_public-token-test-054202e6-a29f-4e07-b0cd-1cd883b4763e");
+      const storedUserLoggedValue = localStorage.getItem(`stytch_sdk_state_${process.env.NEXT_PUBLIC_STYTCH_PUBLIC_TOKEN}`);
       let userLoggedValue: UserLoggedValue | null = storedUserLoggedValue ? JSON.parse(storedUserLoggedValue) : null;
       setIsUserLogged(userLoggedValue !== null && userLoggedValue.session !== null);
     }
