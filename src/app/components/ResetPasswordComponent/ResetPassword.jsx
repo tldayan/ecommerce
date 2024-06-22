@@ -33,7 +33,7 @@ export default function ResetPassword({handleAuthClose,setIsResettingPassword}) 
     } catch (err) {
 
       if(err.status_code === 400) {
-        setServerAuthMessage("Create a password with numbers and speacial characters")
+        setServerAuthMessage("Create a password with numbers and special characters")
       }
     }
   }

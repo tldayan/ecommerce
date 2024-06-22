@@ -77,7 +77,7 @@ useEffect(() => {
           await stytchClient.passwords.create({email,password,session_duration_minutes: 60})
           window.location.reload()
         } else {
-          setServerAuthMessage("Create a password with numbers and speacial characters")
+          setServerAuthMessage("Create a password with numbers and special characters")
         }
         
 
