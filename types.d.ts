@@ -1,7 +1,7 @@
 
 
 type product = {
-    _id : any;
+    _id : strin;
     id: number;
     brand: string;
     title: string;

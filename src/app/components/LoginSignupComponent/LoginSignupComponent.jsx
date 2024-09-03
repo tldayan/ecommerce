@@ -79,12 +79,10 @@ useEffect(() => {
         } else {
           setServerAuthMessage("Create a password with numbers and special characters")
         }
-        
 
       } catch(err) {
         console.log(err)
       }
-
     }
   }
 
