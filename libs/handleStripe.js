@@ -11,14 +11,16 @@ const cart = JSON.parse(localStorage.getItem("cart"))
 const currency = JSON.parse(localStorage.getItem("currency"))
 
 const filteredCart = cart.map(eachObj => {
+    const productImage = eachObj.images[0].startsWith('/') ? eachObj.images[0] : `/${eachObj.images[0]}`;
     return {
         id: eachObj.id,
         productName: eachObj.title,
         price: eachObj.price,
-        productQuantity : eachObj.productQuantity,
-        productImage: eachObj.images[0]
-    }
-})
+        productQuantity: eachObj.productQuantity,
+        productImage: productImage
+    };
+});
+
     
 
     try {
