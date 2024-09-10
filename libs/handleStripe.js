@@ -23,7 +23,7 @@ const filteredCart = cart.map(eachObj => {
 
     try {
 
-        const stripe = await loadStripe(process.env.REACT_STRIPE_KEY)
+        const stripe = await loadStripe(`${process.env.REACT_STRIPE_KEY}`)
 
         const stripeReq = await fetch("https://ecomxpress-server.vercel.app/create-stripe-session",{
             method : 'POST',
