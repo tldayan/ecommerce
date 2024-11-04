@@ -32,6 +32,12 @@ button {
 }
 
 
+@font-face {
+  font-family: 'Malibu';
+  src: url('../../public/Fonts/Malibu.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 .mainContainer {

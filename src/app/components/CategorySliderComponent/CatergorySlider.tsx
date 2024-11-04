@@ -14,10 +14,10 @@ type Props = {
 };
 
 const responsiveSwiper = {
-  320: { slidesPerView: 2, spaceBetween: 5 },
-  480: { slidesPerView: 2, spaceBetween: 5 },
-  768: { slidesPerView: 3, spaceBetween: 20 },
-  1024: { slidesPerView: 6, spaceBetween: 30 },
+  320: { slidesPerView: 2, spaceBetween: 0 },
+  480: { slidesPerView: 2, spaceBetween: 0 },
+  768: { slidesPerView: 3, spaceBetween: 0 },
+  1524: { slidesPerView: 6, spaceBetween: 0 },
 };
 
 export default function CatergorySlider({ products }: Props) {
@@ -124,7 +124,7 @@ export default function CatergorySlider({ products }: Props) {
                   priority={true}
                 />
                 <div className={styles.productDetails}>
-                  <p className={philosopher.className}>{eachProduct.title}</p>
+                  <p>{eachProduct.title}</p>
                   <span className={cormant_infant.className}>
                     {(eachProduct.price * conversions[currency]).toLocaleString()} {currency}
                   </span>
