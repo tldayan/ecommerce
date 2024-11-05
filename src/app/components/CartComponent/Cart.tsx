@@ -147,6 +147,31 @@ export default function Cart() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCart(updatedCart);
   };
+
+  const increment = (productId : number) => {
+
+    const updatedCart: PartialProduct[] = cart.map((product) =>
+      product.id === productId
+        ? { ...product, productQuantity: (product.productQuantity || 0) + 1 }
+        : product
+    );
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+
+  }
+
+
+  const decrement = (productId: number) => {
+    const updatedCart: PartialProduct[] = cart.map((product) =>
+      product.id === productId
+        ? { ...product, productQuantity: Math.max((product.productQuantity || 0) - 1, 1) }
+        : product
+    );
+  
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  };
   
 
   return (
@@ -172,8 +197,20 @@ export default function Cart() {
                       </div>
              
                     <div className={styles.itemEditContainer}>
-                      <span className={styles.itemQuantity}>Qty:</span>
-                      <input placeholder="eg. 12" min={1} onChange={(e) => handleQuantityChange(eachItem.id, e.target.value,eachItem.stock_quantity)} value={eachItem.productQuantity ? eachItem.productQuantity : ""} max={eachItem.stock_quantity} type="number" name="quantity" />
+                      <div className={styles.quantity_container}>
+                        <button onClick={() => decrement(eachItem.id)} className={styles.quantity_action_btn}>-</button>
+                        <input
+                          className={styles.quantity_field}
+                          type="number"
+                          min={1}
+                          placeholder="eg. 12"
+                          name="quantity"
+                          value={eachItem.productQuantity ? eachItem.productQuantity : ""}
+                          max={eachItem.stock_quantity}
+                          onChange={(e) => handleQuantityChange(eachItem.id, e.target.value,eachItem.stock_quantity)}
+                        />
+                        <button onClick={() => increment(eachItem.id)} className={styles.quantity_action_btn}>+</button>
+                      </div>
                       <button onClick={() => deleteItem(eachItem.id)} className={`${styles.deleteButton} ${lato.className}`}>DELETE</button>
                     </div>
                     
