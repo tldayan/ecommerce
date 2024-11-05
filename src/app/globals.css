@@ -38,6 +38,12 @@ button {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Harmonia';
+  src: url('../../public/Fonts/Harmonia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 .mainContainer {

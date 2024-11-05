@@ -139,6 +139,18 @@ export default function ProductView({ product }: Props) {
 
   }
 
+  const increment = () => {
+    if(productQuantity < product.stock_quantity) {
+      setProductQuantity(preQuantity => preQuantity + 1)
+    }
+  }
+  
+  const decrement = () => {
+    if (productQuantity > 1) {
+      setProductQuantity(prevQuantity => prevQuantity - 1);
+    }
+  }
+
 
   return (
     <div className={styles.productViewContainer}>
@@ -261,16 +273,23 @@ export default function ProductView({ product }: Props) {
         </p>
 
         <div className={styles.order_button_container}>
-          <input
-            placeholder="eg. 4"
-            className={styles.quantity_field}
-            type="number"
-            min={1}
-            value={productQuantity === 0 ? "" : productQuantity}
-            max={product.stock_quantity}
-            onChange={(e) => setProductQuantity(Number(e.target.value))}
-          />
-          {product.stock_quantity < 1 ? <button className={styles.outOfStock}>Out of Stock</button> : <button onClick={() => handleAddtoCart(product)} className={`${styles.addToCart} ${cart.some(eachProduct => eachProduct.id === product.id) && styles.added}`}>{cart.some(eachProduct => eachProduct.id === product.id) ? "Remove from" : "Add to"} Cart</button>}
+
+          <div className={styles.quantity_container}>
+            <button onClick={decrement} className={styles.quantity_action_btn}>-</button>
+            <input
+              className={styles.quantity_field}
+              type="number"
+              min={1}
+              value={productQuantity === 0 ? "" : productQuantity}
+              max={product.stock_quantity}
+              onChange={(e) => {
+                const value = Math.min(Number(e.target.value), product.stock_quantity);
+                setProductQuantity(value);
+              }}
+            />
+            <button onClick={increment} className={styles.quantity_action_btn}>+</button>
+          </div>
+          {product.stock_quantity < 1 ? <button className={styles.outOfStock}>Out of Stock</button> : <button onClick={() => handleAddtoCart(product)} className={`${styles.addToCart} ${cart.some(eachProduct => eachProduct.id === product.id) && styles.added}`}>{cart.some(eachProduct => eachProduct.id === product.id) ? "REMOVE FROM" : "ADD TO "} CART</button>}
           <button onClick={() => handleWishlist(product.id)} className={`${styles.wishlist_btn} ${wishlist?.includes(product.id.toString()) && styles.active}`}>{wishlist?.includes(product.id.toString()) ? "In" : "+"} Wishlist</button>
         </div>
       </div>

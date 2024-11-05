@@ -231,7 +231,28 @@ position: relative;
     color: black;
 }
 
-.quantity {
+.quantity_container {
+    border: 1px solid rgba(88, 88, 88, 0.298);
+    display: flex;
+}
+
+.quantity_action_btn {
+    border: none;
+    height: 100%;   
+    width: 25%;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.quantity {  
     font-size: clamp(0.2rem, 3vw, 1rem);
     font-weight: bold;
 }
@@ -245,9 +266,25 @@ position: relative;
 }
 
 .quantity_field {
-    text-indent: 5px;
-    width: 15%;
+    text-align: center;
+    width: 50%;
+    background-color: transparent;
+    outline: none;
+    border: none;
 }
+
+/* Hide arrows in Chrome, Safari, Edge, and Opera */
+.quantity_field::-webkit-outer-spin-button,
+.quantity_field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows in Firefox */
+.quantity_field[type='number'] {
+  -moz-appearance: textfield;
+}
+
 
 .outOfStock {
     white-space: nowrap;
@@ -270,11 +307,13 @@ position: relative;
     background-color: black;
     color: white;
     cursor: pointer;
-    border-radius: 3px;
     border: none;
     border: 1px solid black;
-    transition: 0.1s all;
-    font-size: clamp(0.2rem, 3vw, 1.2rem);  
+    transition: 0.3s all;
+    font-size: clamp(0.2rem, 3vw, 0.9rem);  
+    font-family: "Harmonia";
+    word-spacing: 2px;
+    letter-spacing: 1px;
   
 }
 
