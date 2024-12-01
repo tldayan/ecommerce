@@ -234,6 +234,7 @@ position: relative;
 .quantity_container {
     border: 1px solid rgba(88, 88, 88, 0.298);
     display: flex;
+    width: 20%;
 }
 
 .quantity_action_btn {
@@ -261,7 +262,7 @@ position: relative;
 /*     border: 1px solid black; */
     display: flex;
     gap: 10px;
-    width: 70%;
+    width: 100%;
     
 }
 
